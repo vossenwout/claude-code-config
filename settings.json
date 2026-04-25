@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Skill(invoke-codex)",
+      "Bash(codex:*)",
+      "WebSearch"
+    ],
+    "defaultMode": "dontAsk"
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+ 	    "command": "printf '\\a' > /dev/tty"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": false,
+    "autoAllowBashIfSandboxed": true,
+    "excludedCommands": [
+      "codex:*"
+    ]
+  },
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true
+}
